@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { postCategories } from "../API/APIRequest";
 
 const Layout = (props) => {
   const [categories, setCategories] = useState([]);
@@ -38,7 +39,7 @@ const Layout = (props) => {
               {categories.map((item, index) => {
                 return (
                   <li>
-                    <a>Item 1</a>
+                    <a>{item['name']}</a>
                   </li>
                 );
               })}
@@ -51,14 +52,14 @@ const Layout = (props) => {
             {categories.map((item, index) => {
               return (
                 <li>
-                  <a>Item 1</a>
+                  <a>{item['name']}</a>
                 </li>
               );
             })}
           </ul>
         </div>
       </div>
-      <h1>{props.children}</h1>
+      {props.children}
     </div>
   );
 };
