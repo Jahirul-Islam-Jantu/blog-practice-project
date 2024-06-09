@@ -10,16 +10,16 @@ const BlogList = (props) => {
             return (
               <Link
                 key={index.toString()}
-                to={"/"}
+                to={"/details/" + item["id"]}
                 className="card w-100 glass"
               >
                 <figure>
-                  <img src={item["img"]} alt="car!" />{" "}
+                  <img src={item["img"]} alt="car!" />
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{item["title"]}</h2>
                   <p>{item["short"]}</p>
-                </div>
+                </div> 
               </Link>
             );
           })}

@@ -1,12 +1,12 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Layout from "./../layout/Layout";
 import BlogList from "./../component/BlogList";
-import { useState } from "react";
-import { useEffect } from "react";
 import { postLatest } from "../API/APIRequest";
+import Loader from "./../component/Loader";
 
 const HomePage = () => {
-  const [list, setList] = useState([]);
+  let [list, setList] = useState([]);
+
   useEffect(() => {
     (async () => {
       let res = await postLatest();
@@ -14,11 +14,7 @@ const HomePage = () => {
     })();
   }, []);
 
-  return (
-    <Layout>
-      <BlogList list={list}/>
-    </Layout>
-  );
+  return <Layout>{list === 0 ? <Loader /> : <BlogList list={list} />}</Layout>;
 };
 
 export default HomePage;

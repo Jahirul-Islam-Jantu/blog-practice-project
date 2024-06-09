@@ -19,3 +19,21 @@ export async function postLatest() {
     return [];
   }
 }
+
+export async function postByCategory(id) {
+  let res = await axios.get(baseURL + "/post-list/" + id);
+  if (res.status === 200) {
+    return res.data;
+  } else {
+    return [];
+  }
+}
+export async function detailsPost(id) {
+  let res = await axios.get(baseURL + "/post-details/" + id);
+  if (res.status === 200) {
+    return res.data;
+  } else {
+    return [];
+  }
+}
+

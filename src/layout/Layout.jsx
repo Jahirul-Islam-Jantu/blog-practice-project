@@ -42,7 +42,7 @@ const Layout = (props) => {
               </li>
               {categories.map((item, index) => {
                 return (
-                  <li>
+                  <li key={index.toString()}>
                     <NavLink to={"/byCategory/" + item["id"]}>
                       {item["name"]}
                     </NavLink>
@@ -60,7 +60,7 @@ const Layout = (props) => {
             </li>
             {categories.map((item, index) => {
               return (
-                <li>
+                <li key={index.toString()}>
                   <NavLink to={"/byCategory/" + item["id"]}>
                     {item["name"]}
                   </NavLink>
